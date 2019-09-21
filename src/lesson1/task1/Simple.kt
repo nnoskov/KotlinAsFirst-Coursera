@@ -1,4 +1,5 @@
 @file:Suppress("UNUSED_PARAMETER")
+
 package lesson1.task1
 
 import kotlin.math.*
@@ -16,6 +17,7 @@ fun sqr(x: Int) = x * x
  * Вычисление квадрата вещественного числа
  */
 fun sqr(x: Double) = x * x
+
 
 /**
  * Пример
@@ -48,8 +50,13 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
  * Пример главной функции
  */
 fun main(args: Array<String>) {
-    val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
-    println("Root product: $x1x2")
+    val result = sqr(5)
+    println("$result")
+    val sec = seconds(15, 20, 35)
+    println("Sec=$sec")
+
+    println(angleInRadian(57,17,44))
+
 }
 
 /**
@@ -58,7 +65,8 @@ fun main(args: Array<String>) {
  * Пользователь задает время в часах, минутах и секундах, например, 8:20:35.
  * Рассчитать время в секундах, прошедшее с начала суток (30035 в данном случае).
  */
-fun seconds(hours: Int, minutes: Int, seconds: Int): Int = TODO()
+
+fun seconds(hours: Int, minutes: Int, seconds: Int): Int = hours * 3600 + minutes * 60 + seconds
 
 /**
  * Тривиальная
@@ -75,7 +83,11 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double {
+    val grad = deg.toDouble() + min.toDouble() / 60 + sec.toDouble() / 3600
+
+    return grad / 180 * PI
+}
 
 /**
  * Тривиальная
